@@ -1,11 +1,3 @@
-# Project The Daily Bugle
-
-Develop an elegant React.js News portal.
-
-# Contributing
-
-When contributing to this repository, please first discuss the change you wish to make via issue.
-
 ## System Requirements
 
 To get started with development, you need to install few tools
@@ -47,7 +39,7 @@ To set up a development environment, please follow these steps:
 1. Clone the repo
 
    ```shell
-    git clone https://github.com/bhavy03/NewsPortal.git
+    git clone https://github.com/bhavy03/SlackApp.git
    ```
 
 2. Install the dependencies
@@ -75,4 +67,4 @@ config.env and assign all variables according to you
 
    Project will be running in the browser.
 
-   Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
+   Open [http://localhost:12000](http://localhost:12000) to view it in your browser.
