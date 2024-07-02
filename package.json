@@ -1,0 +1,17 @@
+{
+  "name": "internbitassign",
+  "version": "1.0.0",
+  "description": "Develop an elegant React.js News portal.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/bolt": "^3.19.0",
+    "@slack/web-api": "^7.2.0",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.4"
+  }
+}
