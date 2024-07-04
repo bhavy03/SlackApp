@@ -91,24 +91,36 @@ const app = new App({
     const richTextValue =
       messageBlock["rich_text_input-action"].rich_text_value;
 
-    function extractPlainText(richTextValue) {
-      let plainText = "";
+    function parseRichTextValue(richTextValue) {
+      let formattedText = "";
       richTextValue.elements.forEach((element) => {
-        if (element.type === "rich_text_section") {
-          element.elements.forEach((subElement) => {
-            if (subElement.type === "text") {
-              plainText += subElement.text;
-            }
-          });
-        }
+        element.elements.forEach((subElement) => {
+          formattedText += formatText(subElement);
+        });
       });
-      return plainText;
+      return formattedText;
     }
 
-    const message = extractPlainText(richTextValue);
+    function formatText(subElement) {
+      let text = subElement.text;
+      if (subElement.style) {
+        if (subElement.style.bold) {
+          text = `*${text}*`;
+        }
+        if (subElement.style.italic) {
+          text = `_${text}_`;
+        }
+        if (subElement.style.strikethrough) {
+          text = `~${text}~`;
+        }
+      }
+      if (subElement.type === "link") {
+        text = `${subElement.url}`;
+      }
+      return text;
+    }
+    const message = parseRichTextValue(richTextValue);
 
-    console.log("Selected User:", user);
-    console.log("Message:", message);
     // Send a message to the selected user
     try {
       await client.chat.postMessage({
